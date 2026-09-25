@@ -1,0 +1,120 @@
+:root {
+  color-scheme: light;
+  --navy: #08283a;
+  --navy-deep: #061e2e;
+  --green: #56d8a0;
+  --green-dark: #065b50;
+  --text: #142b3d;
+  --line: #7ce3b5;
+}
+
+* { box-sizing: border-box; }
+
+html { font-family: Arial, Helvetica, sans-serif; }
+
+body { margin: 0; min-width: 280px; color: var(--text); background: #f4faff; }
+
+.site-header {
+  color: #fff;
+  background: linear-gradient(90deg, #071d2a 0%, #08283ae8 45%, #08283a6e 100%), url("images/juntos.png") center 43% / cover;
+  border-bottom: 4px solid #4dbbe3;
+}
+
+.header-inner {
+  width: min(100% - 48px, 1100px);
+  min-height: 225px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.brand-mark {
+  display: grid;
+  flex: 0 0 108px;
+  width: 108px;
+  height: 108px;
+  place-items: center;
+  border-radius: 46% 46% 42% 42%;
+  background: transparent;
+  color: #fff;
+  transform: rotate(-8deg);
+}
+
+.brand-mark svg { width: 87%; height: 87%; fill: #fff; }
+.brand-mark svg .paw-heart { fill: #28ab73; }
+
+.brand-copy { position: relative; z-index: 1; }
+
+h1 {
+  max-width: 650px;
+  margin: 0;
+  font-size: clamp(2.1rem, 4.5vw, 3.7rem);
+  line-height: 1.04;
+  letter-spacing: .025em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+h1 span { display: block; color: var(--green); }
+.tagline { margin-top: 15px; font-size: clamp(1rem, 1.8vw, 1.35rem); }
+.header-note { margin-left: auto; flex: 0 0 auto; text-align: center; font-size: 1.45rem; font-weight: 700; font-style: italic; transform: rotate(-8deg); text-shadow: 0 2px 8px #000b; }
+.header-note span { display: block; color: var(--green); font-size: 2.4rem; line-height: 1; }
+
+.page-content {
+  width: min(100% - 48px, 1060px);
+  margin: 0 auto;
+  padding: 38px 0 50px;
+}
+
+.eyebrow { margin-bottom: 10px; color: var(--green-dark); font-size: .78rem; font-weight: 800; letter-spacing: .16em; }
+h2 { margin: 0; font-size: clamp(1.55rem, 3vw, 2.15rem); line-height: 1.2; }
+p { max-width: 850px; margin: 15px 0 0; font-size: 1.08rem; line-height: 1.62; }
+hr { height: 2px; margin: 18px 0; border: 0; background: linear-gradient(90deg, var(--line), #b3efd4); }
+.introduction hr:last-child { margin: 22px 0 24px; }
+
+.animal-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+figure { margin: 0; }
+.animal-card { overflow: hidden; border-radius: 10px; background: var(--green-dark); box-shadow: 0 8px 25px #0b3a4b1c; }
+.animal-card img { display: block; width: 100%; height: 245px; object-fit: cover; object-position: center 42%; }
+.animal-card figcaption { padding: 10px 12px; color: #fff; text-align: center; font-size: 1.08rem; font-weight: 700; }
+.feature-banner { position: relative; overflow: hidden; margin-top: 24px; border-radius: 10px; background: #142b1e; box-shadow: 0 8px 25px #0b3a4b1c; }
+.feature-banner img { display: block; width: 100%; height: 350px; object-fit: cover; object-position: center 50%; }
+.feature-banner figcaption { position: absolute; top: 50%; right: 6%; transform: translateY(-50%) rotate(-5deg); color: #fff; font-size: clamp(1.5rem, 3vw, 2.65rem); font-weight: 700; font-style: italic; line-height: 1.1; text-align: center; text-shadow: 0 3px 14px #000e; }
+.feature-banner figcaption span { display: block; color: var(--green); font-size: 1.45em; line-height: .9; }
+.site-footer { background: var(--navy); color: #fff; }
+.footer-inner { width: min(100% - 48px, 1060px); margin: auto; padding: 24px 0; text-align: center; font-weight: 600; }
+.footer-inner span { color: var(--green); font-size: 1.4em; vertical-align: -.08em; }
+
+/* Tablet: dois cards na primeira linha e o terceiro centralizado. */
+@media (min-width: 701px) and (max-width: 1024px) {
+  .header-inner { min-height: 190px; }
+  .brand-mark { flex-basis: 82px; width: 82px; height: 82px; font-size: 52px; }
+  .header-note { display: none; }
+  .animal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .animal-card:last-child { grid-column: 1 / -1; width: calc((100% - 20px) / 2); justify-self: center; }
+  .feature-banner img { height: 290px; }
+}
+
+/* Mobile: cards e banner ocupam uma coluna. */
+@media (max-width: 700px) {
+  .site-header { background-position: 33% center; }
+  .header-inner { width: min(100% - 32px, 500px); min-height: 138px; gap: 12px; }
+  .brand-mark { flex-basis: 45px; width: 45px; height: 45px; font-size: 30px; }
+  h1 { font-size: clamp(1.05rem, 4.8vw, 1.65rem); letter-spacing: 0; }
+  .tagline { margin-top: 7px; font-size: .76rem; }
+  .header-note { display: none; }
+  .page-content { width: min(100% - 32px, 500px); padding: 26px 0 36px; }
+  p { font-size: .98rem; line-height: 1.55; }
+  .animal-grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .animal-card img { height: clamp(200px, 64vw, 285px); }
+  .feature-banner { margin-top: 16px; }
+  .feature-banner img { height: clamp(195px, 58vw, 260px); object-position: 36% center; }
+  .feature-banner::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent 25%, #091b13b5 100%); pointer-events: none; }
+  .feature-banner figcaption { z-index: 1; right: 5%; font-size: clamp(1.05rem, 5.6vw, 1.55rem); }
+  .footer-inner { width: min(100% - 32px, 500px); font-size: .9rem; }
+}
+
+@media (max-width: 360px) {
+  .feature-banner figcaption { font-size: 1rem; }
+}
